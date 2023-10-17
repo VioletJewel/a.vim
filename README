@@ -12,9 +12,17 @@ A few of quick commands to swtich between source files and header files quickly.
 :IHV vertical splits and switches
 :IHT new tab and switches
 :IHN cycles through matches
-<Leader>ih switches to file under cursor
-<Leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
-<Leader>ihn cycles through matches
+<plug>(a.ih) switches to file under cursor
+<plug>(a.is) switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
+<plug>(a.ihn) cycles through matches
+
+if you want the normal- or insert-mode mappings above, use for example the following:
+nmap <leader>ih <plug>(ih)
+nmap <leader>is <plug>(is)
+nmap <leader>ihn <plug>(ihn)
+imap <c-x><c-a>h <plug>(ih)
+imap <c-x><c-a>s <plug>(is)
+imap <c-x><c-a>hn <plug>(ihn)
 
 E.g. if you are editing foo.c and need to edit foo.h simply execute :A and you will be editting foo.h, to switch back to foo.c execute :A again. 
 

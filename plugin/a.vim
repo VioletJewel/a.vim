@@ -552,17 +552,17 @@ function! AlternateOpenNextFile(bang)
    endif
 endfunction
 
-comm! -nargs=? -bang IH call AlternateOpenFileUnderCursor("n<bang>", <f-args>)
-comm! -nargs=? -bang IHS call AlternateOpenFileUnderCursor("h<bang>", <f-args>)
-comm! -nargs=? -bang IHV call AlternateOpenFileUnderCursor("v<bang>", <f-args>)
-comm! -nargs=? -bang IHT call AlternateOpenFileUnderCursor("t<bang>", <f-args>)
-comm! -nargs=? -bang IHN call AlternateOpenNextFile("<bang>")
-imap <Leader>ih <ESC>:IHS<CR>
-nmap <Leader>ih :IHS<CR>
-imap <Leader>is <ESC>:IHS<CR>:A<CR>
-nmap <Leader>is :IHS<CR>:A<CR>
-imap <Leader>ihn <ESC>:IHN<CR>
-nmap <Leader>ihn :IHN<CR>
+command! -nargs=? -bang IH call AlternateOpenFileUnderCursor("n<bang>", <f-args>)
+command! -nargs=? -bang IHS call AlternateOpenFileUnderCursor("h<bang>", <f-args>)
+command! -nargs=? -bang IHV call AlternateOpenFileUnderCursor("v<bang>", <f-args>)
+command! -nargs=? -bang IHT call AlternateOpenFileUnderCursor("t<bang>", <f-args>)
+command! -nargs=? -bang IHN call AlternateOpenNextFile("<bang>")
+inoremap <plug>(a.ih) <ESC>:IHS<CR>
+nnoremap <plug>(a.ih) :IHS<CR>
+inoremap <plug>(a.is) <ESC>:IHS<CR>:A<CR>
+nnoremap <plug>(a.is) :IHS<CR>:A<CR>
+inoremap <plug>(a.ihn) <ESC>:IHN<CR>
+nnoremap <plug>(a.ihn) :IHN<CR>
 
 "function! <SID>PrintList(theList) 
 "   let n = 1
@@ -629,11 +629,11 @@ function! NextAlternate(bang)
    endif
 endfunction
 
-comm! -nargs=? -bang A call AlternateFile("n<bang>", <f-args>)
-comm! -nargs=? -bang AS call AlternateFile("h<bang>", <f-args>)
-comm! -nargs=? -bang AV call AlternateFile("v<bang>", <f-args>)
-comm! -nargs=? -bang AT call AlternateFile("t<bang>", <f-args>)
-comm! -nargs=? -bang AN call NextAlternate("<bang>")
+command! -nargs=? -bang A call AlternateFile("n<bang>", <f-args>)
+command! -nargs=? -bang AS call AlternateFile("h<bang>", <f-args>)
+command! -nargs=? -bang AV call AlternateFile("v<bang>", <f-args>)
+command! -nargs=? -bang AT call AlternateFile("t<bang>", <f-args>)
+command! -nargs=? -bang AN call NextAlternate("<bang>")
 
 " Function : BufferOrFileExists (PRIVATE)
 " Purpose  : determines if a buffer or a readable file exists
